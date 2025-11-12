@@ -1,0 +1,2 @@
+Model,Activation,Optimizer,SeqLen,GradClip,Acc,F1,TotalTime,ModelPath
+BiLSTM,tanh,adam,100,No,0.82352,0.8234865793725706,11.45620083808899,results/model_BiLSTM_acttanh_optadam_seq100.pt

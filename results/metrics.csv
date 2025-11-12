@@ -1,0 +1,2 @@
+Model,Activation,Optimizer,SeqLen,GradClip,Acc,F1,TotalTime,ModelPath
+LSTM,relu,sgd,50,Yes,0.50024,0.49960582043258345,210.43828749656677,results\model_LSTM_actrelu_optsgd_seq50.pt

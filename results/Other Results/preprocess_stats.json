@@ -1,0 +1,5 @@
+{
+  "raw_rows": 50000,
+  "vocab_size": 10000,
+  "max_word_index": 121583
+}

@@ -1,0 +1,41 @@
+### Model Comparison Summary
+
+Average performance across all runs:
+
+| Model   |      Acc |       F1 |
+|:--------|---------:|---------:|
+| BiLSTM  | 0.670191 | 0.653537 |
+| LSTM    | 0.656136 | 0.634024 |
+| RNN     | 0.578475 | 0.567664 |
+
+### Best Configuration Details
+
+- **Model:** BiLSTM
+- **Activation:** tanh
+- **Optimizer:** adam
+- **Sequence Length:** 100
+- **Gradient Clipping:** No
+- **Accuracy:** 0.8235
+- **F1-score:** 0.8235
+
+
+### Discussion and Interpretation
+Overall, bidirectional LSTMs achieved the best accuracy (≈ 82 %) and F1 (≈ 0.82),
+outperforming both single-direction LSTMs and simple RNNs.
+This follows expectations since BiLSTMs capture both past and future context in each sentence,
+improving representation for sentiment polarity words that depend on surrounding phrases.
+
+Activation functions affected convergence speed but not ranking:
+`tanh` yielded smoother training curves and higher final F1, while `relu` sometimes caused
+gradient instability in RNNs. `sigmoid` underperformed slightly due to saturation effects.
+
+Among optimizers, **Adam** consistently provided faster and more stable convergence
+than SGD or RMSProp on this dataset.
+Sequence length 100 performed best, suggesting that longer context improves sentiment classification,
+while very short sequences (25) lose information.
+
+Gradient clipping provided minor stability gains on some RNN runs but
+did not improve BiLSTM performance, consistent with its stronger gating mechanisms.
+
+In summary, the BiLSTM (tanh + Adam @ seq 100) combination gives the optimal balance
+between contextual understanding and computational cost for this IMDB review dataset.
